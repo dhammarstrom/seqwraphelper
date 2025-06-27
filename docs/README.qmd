@@ -1,0 +1,30 @@
+---
+title: "seqwraphelper"
+format: gfm
+---
+
+Downloading data 
+
+```{r}
+
+
+library(seqwraphelper)
+
+## R code example
+
+dat <- geo_data()
+
+```
+
+```{r}
+
+head(dat$countdata[,c(1, 2, 3)])
+
+```
+
+```{r}
+
+head(dat$metadata)
+
+```
+

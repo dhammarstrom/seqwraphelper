@@ -7,3 +7,7 @@
 # Output files
 *.html
 *.pdf
+
+# data-raw
+./data-raw
+
