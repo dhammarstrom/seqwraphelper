@@ -1,0 +1,42 @@
+---
+title: "seqwraphelper"
+format: gfm
+---
+
+`seqwraphelper` contains (a) functions that makes it easier to showcase [`seqwrap`](https://github.com/dhammarstrom/seqwrap). Using the function `geo_get()` we can download open datasets from the [Gene expression omnibus](https://www.ncbi.nlm.nih.gov/geo/). The function download, cleans and adds annotations to NCBI-generated gene count data. Two data frames are returned, one with meta-data and one with count data.
+
+```{r}
+#| eval: false
+
+# install seqwraphelper from github
+remotes::install_github("dhammarstrom/seqwraphelper")
+
+```
+
+The only dataset included in the main function is Shetty et al. (2024). To download the files:
+
+```{r}
+
+# Load package
+library(seqwraphelper)
+
+# Use geo_data to donload data from NCBI/GEO
+dat <- geo_data()
+```
+The downloaded data sets are now available as two data frames.
+
+```{r}
+
+head(dat$countdata[,c(1, 2, 3)])
+
+```
+
+```{r}
+
+head(dat$metadata)
+
+```
+
+## References
+
+Shetty AC, Sivinski J, Cornell J, McCracken C et al. Peripheral blood transcriptomic profiling of molecular mechanisms commonly regulated by binge drinking and placebo effects. *Sci Rep* 2024 May 10;14(1):10733. PMID: 38730024
