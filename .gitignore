@@ -1,0 +1,9 @@
+# R specific
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Output files
+*.html
+*.pdf
