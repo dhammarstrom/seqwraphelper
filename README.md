@@ -1,18 +1,19 @@
 # seqwraphelper
 
-`seqwraphelper` contains (a) functions that makes it easier to showcase
-[`seqwrap`](https://github.com/dhammarstrom/seqwrap). Using the function
-`geo_get()` we can download open datasets from the [Gene expression
+
+`seqwraphelper` contains a function that makes it easier to showcase
+[`seqwrap`](https://github.com/trainome/seqwrap). Using the function
+`geo_get()` we can download an open data set from the [Gene expression
 omnibus](https://www.ncbi.nlm.nih.gov/geo/). The function download,
 cleans and adds annotations to NCBI-generated gene count data. Two data
-frames are returned, one with meta-data and one with count data.
+frames are returned, one with metadata and one with count data.
 
 ``` r
 # install seqwraphelper from github
 remotes::install_github("dhammarstrom/seqwraphelper")
 ```
 
-The only dataset included in the main function is Shetty et al. (2024).
+The only dataset included in the main function is Pillon et al. (2022).
 To download the files:
 
 ``` r
@@ -26,9 +27,9 @@ dat <- geo_data()
     Joining with `by = join_by(GeneID)`
     Setting options('download.file.method.GEOquery'='auto')
     Setting options('GEOquery.inmemory.gpl'=FALSE)
-    Found 1 file(s)
-    GSE232408_series_matrix.txt.gz
-    Using locally cached version: ./data-raw/GSE232408_series_matrix.txt.gz
+
+    Warning: Expected 3 pieces. Additional pieces discarded in 111 rows [1, 2, 3, 4, 5, 6,
+    7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, ...].
 
 The downloaded data sets are now available as two data frames.
 
@@ -36,36 +37,29 @@ The downloaded data sets are now available as two data frames.
 head(dat$countdata[,c(1, 2, 3)])
 ```
 
-           geneid GSM7330880 GSM7330882
-    1     DDX11L1        188        182
-    2      WASH7P       1685       2042
-    3   MIR6859-1         79         32
-    4 MIR1302-2HG          1          0
-    5   MIR1302-2          4          0
-    6     FAM138A          2          0
+           geneid GSM6107906 GSM6107907
+    1     DDX11L1          2          2
+    2      WASH7P         22         37
+    3   MIR6859-1          1          1
+    4 MIR1302-2HG          0          1
+    5   MIR1302-2          0          0
+    6     FAM138A          0          0
 
 ``` r
 head(dat$metadata)
 ```
 
-        participant period time                 tissue gender       dose age
-    1  Participant3      1    3 peripheral whole blood   Male    Placebo  21
-    2  Participant8      1    3 peripheral whole blood   Male   HighDose  39
-    3 Participant17      1    3 peripheral whole blood Female    Placebo  26
-    4  Participant1      3    0 peripheral whole blood   Male MediumDose  21
-    5  Participant1      3    3 peripheral whole blood   Male MediumDose  21
-    6  Participant2      2    0 peripheral whole blood   Male   HighDose  27
-      study_site seq_sample_id
-    1          1    GSM7330880
-    2          1    GSM7330881
-    3          1    GSM7330882
-    4          1    GSM7330883
-    5          1    GSM7330884
-    6          1    GSM7330885
+      seq_sample_id group  id  time
+    1    GSM6107906   T2D 001 basal
+    2    GSM6107907   T2D 001  post
+    3    GSM6107908   T2D 001   rec
+    4    GSM6107909   NGT 003 basal
+    5    GSM6107910   NGT 003  post
+    6    GSM6107911   NGT 003   rec
 
 ## References
 
-Shetty AC, Sivinski J, Cornell J, McCracken C et al. Peripheral blood
-transcriptomic profiling of molecular mechanisms commonly regulated by
-binge drinking and placebo effects. *Sci Rep* 2024 May 10;14(1):10733.
-PMID: 38730024
+Pillon NJ, Smith JAB, Alm PS, Chibalin AV et al. Distinctive
+exercise-induced inflammatory response and exerkine induction in
+skeletal muscle of people with type 2 diabetes. *Sci Adv* 2022 Sep
+9;8(36):eabo3192. PMID: 36070371

@@ -1,13 +1,13 @@
 Package: seqwraphelper
 Title: Helper Data Sets and Functions for Seqwrap Showcase
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
+    person("Daniel", "Hammarström", , "daniel.hammarstrom@inn.no", role = c("aut", "cre"))
 Description: Here we store data sets and functions used to showcase seqwrap.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Imports:
     tidyr,
     dplyr,

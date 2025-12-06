@@ -12,10 +12,10 @@ geo_data(dir = "./data-raw", gse = c("GSE202295"))
 \item{gse}{GSE accession number}
 }
 \description{
-Currently, a data sets from Shetty et al. and Pillon et al. are made
+Currently, a data sets from Pillon et al. is made
 available for the user
 after downloading from the Gene Expression Omnibus. The dataset can be used
-for replicating analyses in the Vignette and upcoming paper.
+for replicating analyses in seqwrap vignette and paper.
 }
 \references{
 Pillon NJ, Smith JAB, Alm PS, Chibalin AV et al.
